@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:10:23 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 10:18:37 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/08 12:37:49 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include <string.h>
-# include <stdio.h>
-# include <stddef.h>
-# include <mm_malloc.h>
-# include <limits.h>
-# include <unistd.h>
+# include "libft.h"
 # include <stdarg.h>
 
 /**
@@ -28,13 +23,13 @@
  * @param	... : other params that will be printed within the string '%' marks.
  * @return	The number of characters printed.
  */
-int	ft_printf(const char *line, ...);
+int		ft_printf(const char *line, ...);
 /**
  * @brief	Writes in console the character given.
  * @param	int	character : The int value of char to print.
  * @return	1 if success, -1 if error.
  */
-int	ft_putchar(char character);
+int		ft_putchar(char character);
 /**
  * @brief	Checks for the type of argument requested and calls the respective 
  * 			function to the argument pointed.
@@ -42,7 +37,7 @@ int	ft_putchar(char character);
  * @param	va_list	args : list of arguments.
  * @param	int		index : position of the argument on the list.
  */
-int	ft_check_arg(char character, va_list args, int index);
+int		ft_check_arg(char character, va_list args, int index);
 /**
  * @brief	Writes in console the int number given in the specified base.
  * @param	int		number :	the number to write.
@@ -51,6 +46,19 @@ int	ft_check_arg(char character, va_list args, int index);
  * 								number as unsigned.
  * @return	The number of characters writen, -1 if error.
  */
-int	ft_putnbr_base(int number, char	*base, int sign);
+int		ft_putnbr_base(int number, char	*base, int sign);
+/**
+ * @brief	Turns an int number to string following the given N-base.
+ * @param	int		nbr :	The number to transform.
+ * @param	char	*base :	The N-base to use.
+ * @return	String with number given transformed in N-base.
+ */
+char	*ft_tonbrbase(int nbr, char *base);
+/**
+ * @brief	Writes in console the char array given.
+ * @param	char	*str :	The string to write.
+ * @return	The number of characters writen, -1 if error.
+ */
+int		ft_putstr(char	*str);
 
 #endif

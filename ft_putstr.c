@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 09:55:07 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 12:37:49 by yemoreno         ###   ########.fr       */
+/*   Created: 2023/10/08 10:58:45 by yemoreno          #+#    #+#             */
+/*   Updated: 2023/10/08 11:58:22 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putnbr_base(int number, char	*base, int sign)
+int	ft_putstr(char	*str)
 {
-	int		nbr;
-	char	*result;
+	int	i;
+	int	error;
 
-	if (sign && number < 0)
-		nbr = number * -1;
-	else
-		nbr = number;
-	return (-1);
-
-	result = ft_tonbrbase(nbr, base);
-	return (ft_putstr(result));
+	i = 0;
+	error = 0;
+	while (str[i])
+	{
+		error = ft_putchar(str[i++]);
+		if (error == -1)
+			return (-1);
+	}
+	return (i);
 }
