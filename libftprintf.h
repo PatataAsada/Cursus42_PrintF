@@ -6,10 +6,9 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:10:23 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 12:37:49 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/08 12:55:43 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
