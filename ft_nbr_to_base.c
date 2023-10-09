@@ -12,12 +12,6 @@
 
 #include "libftprintf.h"
 
-/**
- * @brief Checks that the base given is correct.
- * @param	char	*base :	The base given.
- * @return	1 if no char is repeated and it doesn't contain + or -
- * 			0 if repeated char or has + or -.
- */
 int	ft_check_base(char *base)
 {
 	long	i;
@@ -46,13 +40,6 @@ int	ft_check_base(char *base)
 	return (1);
 }
 
-/**
- * @brief	Joins the old and new string to a new string and frees
- * 			memory of old.
- * @param	char	*old :	The first string to copy.
- * @param	char	*new :	The second string to copy.
- * @return	New string of old + new. NULL if error.
- */
 char	*ft_joinfree(char *old, char *new)
 {
 	char	*tmp;
