@@ -10,7 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+include libft/Makefile
+
+PRINTNAME = libftprintf.a
 SOURCES = \
 	ft_putchar.c\
 	ft_printf.c\
@@ -20,22 +22,19 @@ SOURCES = \
 	ft_nbr_to_base.c
 OBJECTS = $(SOURCES:.c=.o)
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+all: $(PRINTNAME)
 
-all: $(NAME)
-
-$(NAME): $(OBJECTS)
+$(PRINTNAME): $(OBJECTS) #Creates .a file
 	$(AR) -r $@ $?
 
-%.o: %.c
+%.o: %.c #Compiles objects
 	$(CC) -c $(CFLAGS) $?
 
-clean: #cleans objects
+clean: #Cleans objects
 	rm -f $(OBJECTS)
 
-fclean: clean #Cleans name
-	rm -f $(NAME)
+fclean: clean #Cleans .a file
+	rm -f $(PRINTNAME)
 
 re: fclean all
 
