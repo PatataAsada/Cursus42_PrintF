@@ -10,32 +10,40 @@
 #                                                                              #
 # **************************************************************************** #
 
-include libft/Makefile
+NAME = libftprintf.a
+LIBFTNAME = libft.a
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+LIBFTDIR = ./Libft
 
-PRINTNAME = libftprintf.a
-SOURCES = \
-	ft_putchar.c\
-	ft_printf.c\
-	ft_check_arg.c\
-	ft_putsrt.c\
-	ft_putnbr_base.c\
-	ft_nbr_to_base.c
-OBJECTS = $(SOURCES:.c=.o)
+SRCS = \
+        ft_check_arg.c \
+        ft_nbr_to_base.c \
+        ft_putchar.c \
+        ft_putnbr_base.c \
+        ft_putstr.c \
+		ft_printf.c
 
-all: $(PRINTNAME)
+OBJS = $(SRCS:.c=.o)
 
-$(PRINTNAME): $(OBJECTS) #Creates .a file
-	$(AR) -r $@ $?
+all: $(NAME)
 
-%.o: %.c #Compiles objects
-	$(CC) -c $(CFLAGS) $?
+makelibft:
+	@make -C $(LIBFTDIR)
+	@cp $(LIBFTDIR)/$(LIBFTNAME) .
+	@mv $(LIBFTNAME) $(NAME)
 
-clean: #Cleans objects
-	rm -f $(OBJECTS)
+$(NAME): makelibft $(OBJS)
+	@ar -r $(NAME) $(OBJS)
 
-fclean: clean #Cleans .a file
-	rm -f $(PRINTNAME)
-
+clean:
+	@rm -f $(OBJS)
+	@cd $(LIBFTDIR) && make clean
+    
+fclean: clean
+	@rm -f $(NAME)
+	@cd $(LIBFTDIR) && make fclean
+    
 re: fclean all
 
 .PHONY: all bonus clean fclean re

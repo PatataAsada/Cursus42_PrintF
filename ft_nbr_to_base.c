@@ -69,7 +69,7 @@ char	*ft_tonbrbase(int nbr, char *base)
 		add[0] = '-';
 		result = ft_joinfree(result, add);
 	}
-	if (nbr >= ft_strlen(base))
+	if (nbr >= (int) ft_strlen(base))
 		result = ft_joinfree(result, ft_tonbrbase(nbr / ft_strlen(base), base));
 	add[0] = base[nbr % ft_strlen(base)];
 	result = ft_joinfree(result, add);

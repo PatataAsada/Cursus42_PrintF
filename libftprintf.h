@@ -13,7 +13,7 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# include "libft.h"
+# include "Libft/libft.h"
 # include <stdarg.h>
 
 /**
@@ -36,7 +36,7 @@ int		ft_putchar(char character);
  * @param	va_list	args : list of arguments.
  * @param	int		index : position of the argument on the list.
  */
-int		ft_check_arg(char character, va_list args, int index);
+int		ft_check_arg(char character, va_list args);
 /**
  * @brief	Writes in console the int number given in the specified base.
  * @param	int		number :	the number to write.

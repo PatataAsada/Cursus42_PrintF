@@ -12,14 +12,14 @@
 
 #include "libftprintf.h"
 
-int	ft_check_arg(char character, va_list args, int index)
+int	ft_check_arg(char character, va_list args)
 {
 	if (!character)
 		return (-1);
 	if (character == 'c')
-		return (ft_putchar(va_arg(args, char)));
+		return (ft_putchar(va_arg(args, int)));
 	if (character == 's')
-		return (ft_putsrt(va_arg(args, char *)));
+		return (ft_putstr(va_arg(args, char *)));
 	if (character == 'p')
 		return (ft_putstr(va_arg(args, void *)));
 	if (character == 'd')
@@ -33,6 +33,6 @@ int	ft_check_arg(char character, va_list args, int index)
 	if (character == 'X')
 		return (ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF", 0));
 	if (character == '%')
-		return (write(0, '%', 1));
+		return (write(0, "%%", 1));
 	return (-1);
 }
