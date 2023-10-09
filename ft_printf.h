@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 09:10:23 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 12:55:43 by yemoreno         ###   ########.fr       */
+/*   Created: 2023/10/09 14:53:34 by yemoreno          #+#    #+#             */
+/*   Updated: 2023/10/09 14:53:34 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "Libft/libft.h"
 # include <stdarg.h>
@@ -28,7 +28,7 @@ int		ft_printf(const char *line, ...);
  * @param	int	character : The int value of char to print.
  * @return	1 if success, -1 if error.
  */
-int		ft_putchar(char character);
+int		ft_putchar(int character);
 /**
  * @brief	Checks for the type of argument requested and calls the respective 
  * 			function to the argument pointed.

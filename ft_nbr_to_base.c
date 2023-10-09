@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_check_base(char *base)
 {
@@ -23,9 +23,9 @@ int	ft_check_base(char *base)
 		return (0);
 	else
 	{
-		while (i < ft_strlen(base))
+		while (i < (long) ft_strlen(base))
 		{
-			while (j < ft_strlen(base) && base[j + 1])
+			while (j < (long) ft_strlen(base) && base[j + 1])
 			{
 				if (base[j + 1] == base[i])
 					return (0);
@@ -58,6 +58,7 @@ char	*ft_tonbrbase(int nbr, char *base)
 	char	*result;
 	char	*add;
 
+	result = NULL;
 	if (!base || !nbr || nbr * -1 - 1 == 2147483647)
 		return (NULL);
 	add = ft_calloc(2, sizeof(char));

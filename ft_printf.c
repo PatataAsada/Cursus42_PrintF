@@ -10,14 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *line, ...)
 {
 	va_list	args;
 	int		i;
-	int		j;
 	int		error;
 	int		count;
 
@@ -25,13 +23,12 @@ int	ft_printf(const char *line, ...)
 		return (0);
 	va_start(args, line);
 	i = 0;
-	j = 0;
 	error = 0;
 	count = 0;
 	while (line[i] && error != -1)
 	{
 		if (line[i] == '%')
-			error = ft_check_arg(line[++i], args, j++);
+			error = ft_check_arg(line[++i], args);
 		else
 			error = ft_putchar(line[i]);
 		i++;
