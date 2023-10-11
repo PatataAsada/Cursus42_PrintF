@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 09:01:45 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 12:55:16 by yemoreno         ###   ########.fr       */
+/*   Created: 2023/10/09 17:52:23 by yemoreno          #+#    #+#             */
+/*   Updated: 2023/10/09 17:52:23 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *line, ...)
+int	ft_putptr(void *arg)
 {
-	va_list	args;
-	int		i;
-	int		count;
+	char			*str;
+	unsigned long	ptr_address;
 
-	if (!line)
-		return (NULL);
-	va_start(args, line);
-	i = 0;
-	count = 0;
-	while (line[i] && count != -1)
-	{
-		if (line[i] == '%')
-			ft_check_arg(line[++i], args, count);
-		else
-			ft_putchar(line[i], count);
-		i++;
-	}
-	va_end(args);
-	if (count == -1)
-		return (-1);
-	return (count);
+	ptr_address = (unsigned long)arg;
+	str = ft_tonbrbase(ptr_address, HEX_LOW_BASE);
+	write(0, "0x", 2);
+	write(0, ft_putstr(str), strlen(str))
+	return (2 + strlen(str));
 }

@@ -12,27 +12,26 @@
 
 #include "ft_printf.h"
 
-int	ft_check_arg(char character, va_list args)
+void	ft_check_arg(char character, va_list args, int count)
 {
 	if (!character)
-		return (-1);
-	if (character == 'c')
-		return (ft_putchar(va_arg(args, int)));
-	if (character == 's')
-		return (ft_putstr(va_arg(args, char *)));
-	if (character == 'p')
-		return (ft_putstr(va_arg(args, void *)));
-	if (character == 'd')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789", 0));
-	if (character == 'i')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789", 0));
-	if (character == 'u')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789", 1));
-	if (character == 'x')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789abcdef", 0));
-	if (character == 'X')
-		return (ft_putnbr_base(va_arg(args, int), "0123456789ABCDEF", 0));
-	if (character == '%')
-		return (write(0, "%%", 1));
-	return (-1);
+		count = -1;
+	else if (character == 'c')
+		ft_putchar(va_arg(args, int), count);
+	else if (character == 's')
+		ft_putstr(va_arg(args, char *), count);
+	else if (character == 'p')
+		ft_putptr(va_arg(args, void *), count);
+	else if (character == 'd' || character == 'i')
+		ft_putnbr_base(va_arg(args, int), DEC_BASE, 0, count);
+	else if (character == 'u')
+		ft_putnbr_base(va_arg(args, int), DEC_BASE, 1, count);
+	else if (character == 'x')
+		ft_putnbr_base(va_arg(args, int), HEX_LOW_BASE, 1, count);
+	else if (character == 'X')
+		ft_putnbr_base(va_arg(args, int), HEX_HIGH_BASE, 1, count);
+	else if (character == '%')
+		ft_putchar('%', count);
+	else
+		count = -1;
 }

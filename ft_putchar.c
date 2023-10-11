@@ -12,7 +12,13 @@
 
 #include "ft_printf.h"
 
-int	ft_putchar(int character)
+void	ft_putchar(int character, int count)
 {
-	return (write(0, ("" + (char) character), 1));
+	int	error;
+
+	error = write(0, ((char) character), 1);
+	if (error == -1 || count == -1)
+		count = -1;
+	else
+		count++;
 }

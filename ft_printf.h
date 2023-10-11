@@ -13,8 +13,20 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "Libft/libft.h"
+# include "libft/libft.h"
 # include <stdarg.h>
+
+# ifndef HEX_LOW_BASE
+#  define HEX_LOW_BASE "0123456789abcdef"
+# endif
+
+# ifndef HEX_HIGH_BASE
+#  define HEX_HIGH_BASE "0123456789ABCDEF"
+# endif
+
+# ifndef DEC_BASE
+#  define DEC_BASE "0123456789"
+# endif
 
 /**
  * @brief 	Replication of Printf function.
@@ -22,57 +34,44 @@
  * @param	... : other params that will be printed within the string '%' marks.
  * @return	The number of characters printed.
  */
-int		ft_printf(const char *line, ...);
+int			ft_printf(const char *line, ...);
 /**
  * @brief	Writes in console the character given.
  * @param	int	character : The int value of char to print.
- * @return	1 if success, -1 if error.
+ * @param	int	count : It adds 1 to the value if success, sets to -1 if error.
  */
-int		ft_putchar(int character);
+void		ft_putchar(int character, int count);
 /**
  * @brief	Checks for the type of argument requested and calls the respective 
  * 			function to the argument pointed.
- * @param	char	character : Defines type of function to use.
- * @param	va_list	args : list of arguments.
- * @param	int		index : position of the argument on the list.
+ * @param	char	character : character that follows the % symbol.
+ * @param	va_list	args : list of arguments it will pick.
+ * @param	int		count : value where to save printed characters.
  */
-int		ft_check_arg(char character, va_list args);
+void		ft_check_arg(char character, va_list args, int count);
 /**
  * @brief	Writes in console the int number given in the specified base.
  * @param	int		number :	the number to write.
- * @param	char	*base :		string of the base to use.
- * @param	int		sign :		if not false it will do the writing treating the
- * 								number as unsigned.
- * @return	The number of characters writen, -1 if error.
+ * @param	char	*base :		string of the N-base to use.
+ * @param	int		sign :		Determines wether to treat the number 
+ * 								as unsigned or signed.
+ * @param	int		count :		It adds the numbers printed to it or sets it
+ * 								or sets it to -1 if error.
  */
-int		ft_putnbr_base(int number, char	*base, int sign);
-/**
- * @brief	Turns an int number to string following the given N-base.
- * @param	int		nbr :	The number to transform.
- * @param	char	*base :	The N-base to use.
- * @return	String with number given transformed in N-base.
- */
-char	*ft_tonbrbase(int nbr, char *base);
+void		ft_putnbr_base(int number, char	*base, int sign, int count);
 /**
  * @brief	Writes in console the char array given.
  * @param	char	*str :	The string to write.
- * @return	The number of characters writen, -1 if error.
+ * @param	int		count :	It adds the number of characters printed
+ * 							or sets it to -1 if error.
  */
-int		ft_putstr(char	*str);
+void		ft_putstr(char *str, int count);
 /**
- * @brief Checks that the base given is correct.
- * @param	char	*base :	The base given.
- * @return	1 if no char is repeated and it doesn't contain + or -
- * 			0 if repeated char or has + or -.
+ * @brief	Writes in console the pointer given.
+ * @param	char	*ptr : data from where to get the pointer.
+ * @param	int		count : Adds the number of charaters printed to it
+ * 							or sets to -1 if error.
  */
-int		ft_check_base(char *base);
-/**
- * @brief	Joins the old and new string to a new string and frees
- * 			memory of old.
- * @param	char	*old :	The first string to copy.
- * @param	char	*new :	The second string to copy.
- * @return	New string of old + new. NULL if error.
- */
-char	*ft_joinfree(char *old, char *new);
+void		ft_putptr(void *ptr, int count);
 
 #endif

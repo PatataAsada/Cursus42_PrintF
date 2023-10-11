@@ -12,29 +12,33 @@
 
 NAME = libftprintf.a
 LIBFTNAME = libft.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-LIBFTDIR = ./Libft
+LIBFTDIR = ./libft
 
 SRCS = \
-        ft_check_arg.c \
-        ft_nbr_to_base.c \
-        ft_putchar.c \
-        ft_putnbr_base.c \
-        ft_putstr.c \
-		ft_printf.c
-
+	ft_printf.c \
+	ft_check_arg.c \
+	ft_nbr_to_base.c \
+	ft_putchar.c \
+	ft_putnbr_base.c \
+	ft_putstr.c \
+	ft_putptr.c
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
 
 makelibft:
 	@make -C $(LIBFTDIR)
 	@cp $(LIBFTDIR)/$(LIBFTNAME) .
 	@mv $(LIBFTNAME) $(NAME)
 
+all: $(NAME)
+
 $(NAME): makelibft $(OBJS)
 	@ar -r $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) $?
 
 clean:
 	@rm -f $(OBJS)

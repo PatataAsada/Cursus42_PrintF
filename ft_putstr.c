@@ -14,16 +14,7 @@
 
 int	ft_putstr(char	*str)
 {
-	int	i;
-	int	error;
-
-	i = 0;
-	error = 0;
-	while (str[i])
-	{
-		error = ft_putchar(str[i++]);
-		if (error == -1)
-			return (-1);
-	}
-	return (i);
+	if (!str)
+		str = "(null)";
+	return (write(0, str, ft_strlen(str)));
 }
