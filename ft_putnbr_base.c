@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:55:07 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 19:45:32 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 20:16:57 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,20 @@ void	i_base(int nbr, int base, char *chars, int *count)
 
 void	ft_putnbr_base(int nbr, char *base, int *count)
 {
-	int	l;
-
-	l = ft_len(base);
-	if (l >= 2)
+	if (ft_len(base) >= 2)
 	{
-		if (nbr == -2147483648)
+		if (nbr <= INT_MIN)
 		{
 			ft_putchar('-', count);
-			i_base((nbr / l) * -1, l, base, count);
-			ft_putchar(base[nbr % l * -1], count);
+			i_base((nbr / ft_len(base)) * -1, ft_len(base), base, count);
+			ft_putchar(base[nbr % ft_len(base) * -1], count);
 		}
 		else if (nbr < 0)
 		{
 			ft_putchar('-', count);
-			i_base(nbr * -1, l, base, count);
+			i_base(nbr * -1, ft_len(base), base, count);
 		}
 		else
-			i_base(nbr, l, base, count);
+			i_base(nbr, ft_len(base), base, count);
 	}
 }
