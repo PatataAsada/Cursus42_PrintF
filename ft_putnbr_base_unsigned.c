@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base_unsigned.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 10:58:45 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 19:30:03 by yemoreno         ###   ########.fr       */
+/*   Created: 2023/10/12 19:45:54 by yemoreno          #+#    #+#             */
+/*   Updated: 2023/10/12 19:53:01 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char	*str, int *count)
+void	ft_putnbr_base_unsigned(unsigned int nbr, char *base, int *count)
 {
-	if (!str)
-		str = "(null)";
-	write(1, str, ft_strlen(str));
-	(*count) += ft_strlen(str);
+	ft_putnbr_base(nbr, base, count);
 }

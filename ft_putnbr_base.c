@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:55:07 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 18:36:47 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:45:32 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ int	ft_len(char *base)
  * @param	int		count :		It adds the characters writen to itself
  * 								sets to -1 if error.
 */
-void	i_base(int nbr, int base, char *chars, int count)
+void	i_base(int nbr, int base, char *chars, int *count)
 {
-	if (count == -1)
-		return ;
-	else if (nbr < base)
+	if (nbr < base)
 	{
 		ft_putchar(chars[nbr % base], count);
 	}
@@ -67,12 +65,10 @@ void	i_base(int nbr, int base, char *chars, int count)
 	}
 }
 
-void	ft_putnbr_base(int nbr, char *base, int sign, int count)
+void	ft_putnbr_base(int nbr, char *base, int *count)
 {
 	int	l;
 
-	if (sign && nbr < 0)
-		nbr *= -1;
 	l = ft_len(base);
 	if (l >= 2)
 	{

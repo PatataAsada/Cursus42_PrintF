@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:01:45 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 18:31:51 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:20:38 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_printf(const char *line, ...)
 	while (line[i] && count != -1)
 	{
 		if (line[i] == '%')
-			ft_check_arg(line[++i], args, count);
+			ft_check_arg(line[++i], args, &count);
 		else
-			ft_putchar(line[i], count);
+			ft_putchar(line[i], &count);
 		i++;
 	}
 	va_end(args);

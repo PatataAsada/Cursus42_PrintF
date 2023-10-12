@@ -6,7 +6,7 @@
 #    By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 09:24:25 by yemoreno          #+#    #+#              #
-#    Updated: 2023/10/12 18:29:49 by yemoreno         ###   ########.fr        #
+#    Updated: 2023/10/12 19:53:21 by yemoreno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS = \
 	ft_putchar.c \
 	ft_putnbr_base.c \
 	ft_putstr.c \
-	ft_putptr.c
+	ft_putptr.c \
+	ft_putnbr_base_unsigned.c
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
