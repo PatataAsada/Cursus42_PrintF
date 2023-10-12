@@ -6,15 +6,15 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:34 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/09 14:53:34 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:40:07 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft/libft.h"
 # include <stdarg.h>
+# include "./Libft/libft.h"
 
 # ifndef HEX_LOW_BASE
 #  define HEX_LOW_BASE "0123456789abcdef"
@@ -40,7 +40,7 @@ int			ft_printf(const char *line, ...);
  * @param	int	character : The int value of char to print.
  * @param	int	count : It adds 1 to the value if success, sets to -1 if error.
  */
-void		ft_putchar(int character, int count);
+void		ft_putchar(char character, int count);
 /**
  * @brief	Checks for the type of argument requested and calls the respective 
  * 			function to the argument pointed.

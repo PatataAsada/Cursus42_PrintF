@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:01:45 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/08 12:55:16 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 18:31:51 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_printf(const char *line, ...)
 	int		count;
 
 	if (!line)
-		return (NULL);
+		return (-1);
 	va_start(args, line);
 	i = 0;
 	count = 0;
