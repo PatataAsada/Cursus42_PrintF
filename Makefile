@@ -6,7 +6,7 @@
 #    By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/08 09:24:25 by yemoreno          #+#    #+#              #
-#    Updated: 2023/10/12 19:53:21 by yemoreno         ###   ########.fr        #
+#    Updated: 2023/10/12 23:18:53 by yemoreno         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,27 +24,29 @@ SRCS = \
 	ft_putnbr_base_unsigned.c
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
-	$(AR) -r $@ $?
+makelibft:
+	make -C $(LIBFTDIR)
+	cp $(LIBFTDIR)/$(LIBFTNAME) .
+	mv $(LIBFTNAME) $(NAME)
+
+$(NAME): makelibft $(OBJS)
+	ar -rs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
 
 clean:
-	@rm -f $(OBJS)
-	@cd $(LIBFTDIR) && make clean
+	rm -f $(OBJS)
+	cd $(LIBFTDIR) && make clean
     
 fclean: clean
-	@rm -f $(NAME)
-	@cd $(LIBFTDIR) && make fclean
+	rm -f $(NAME)
+	cd $(LIBFTDIR) && make fclean
     
 re: fclean all
 

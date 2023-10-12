@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:32:59 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 19:23:21 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 23:42:19 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_putchar(char character, int *count)
 {
-	write(1, &character, 1);
-	(*count)++;
+	(*count) += write(1, &character, 1);
 }

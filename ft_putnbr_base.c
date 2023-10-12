@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 09:55:07 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 20:16:57 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 23:47:47 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,12 @@ int	ft_len(char *base)
  * @param	int		nbr :		The number to write.
  * @param	int		base :		The length of the N-base.
  * @param	char	*chars :	The characters of the N-base.
- * @param	int		count :		It adds the characters writen to itself
- * 								sets to -1 if error.
+ * @param	int		count :		It adds the number of charaters printed to it.
 */
 void	i_base(int nbr, int base, char *chars, int *count)
 {
 	if (nbr < base)
-	{
-		ft_putchar(chars[nbr % base], count);
-	}
+		ft_putchar(chars[nbr], count);
 	else
 	{
 		i_base(nbr / base, base, chars, count);

@@ -6,7 +6,7 @@
 /*   By: yemoreno <yemoreno@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:53:34 by yemoreno          #+#    #+#             */
-/*   Updated: 2023/10/12 20:09:16 by yemoreno         ###   ########.fr       */
+/*   Updated: 2023/10/12 23:46:43 by yemoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			ft_printf(const char *line, ...);
 /**
  * @brief	Writes in console the character given.
  * @param	int	character : The int value of char to print.
- * @param	int	count : It adds 1 to the value if success, sets to -1 if error.
+ * @param	int	count : It adds 1 to the value if success.
  */
 void		ft_putchar(char character, int *count);
 /**
@@ -46,34 +46,35 @@ void		ft_putchar(char character, int *count);
  * 			function to the argument pointed.
  * @param	char	character : character that follows the % symbol.
  * @param	va_list	args : list of arguments it will pick.
- * @param	int		count : value where to save printed characters.
+ * @param	int		count : It adds the amount of printed characters to it.
  */
 void		ft_check_arg(char character, va_list args, int *count);
 /**
  * @brief	Writes in console the int number given in the specified base.
  * @param	int		number :	the number to write.
  * @param	char	*base :		string of the N-base to use.
- * @param	int		count :		It adds the numbers printed to it or sets it
- * 								or sets it to -1 if error.
+ * @param	int		count :		It adds the numbers printed to it or sets it.
  */
-void		ft_putnbr_base(int number, char	*base, int *count);
+void		ft_putnbr_base(int number, char *base, int *count);
 /**
  * @brief	Writes in console the char array given.
  * @param	char	*str :	The string to write.
- * @param	int		count :	It adds the number of characters printed
- * 							or sets it to -1 if error.
+ * @param	int		count :	It adds the number of characters printed to it.
  */
 void		ft_putstr(char *str, int *count);
 /**
  * @brief	Writes in console the pointer given.
- * @param	char	*ptr : data from where to get the pointer.
- * @param	int		count : Adds the number of charaters printed to it
- * 							or sets to -1 if error.
+ * @param	char	*ptr :	data from where to get the pointer.
+ * @param	int		count :	It adds the number of charaters printed to it.
  */
 void		ft_putptr(void *ptr, int *count);
 /**
  * @brief	Writes in console the unsigned number given.
+ * @param	unsigned long long	nbr :		Number to write.
+ * @param	char				*base :		N-base to use.
+ * @param	int					*count :	It adds the number of charaters printed to it.
  */
-void		ft_putnbr_base_unsigned(unsigned int nbr, char *base, int *count);
+void		ft_putnbr_base_unsigned(unsigned long long nbr,
+				char *base, int *count);
 
 #endif
